@@ -5,10 +5,17 @@ services:
     build:
       context: .
     container_name: jenkins
+    external_links:
+      - ldap:ldap.luochunhui.com
     volumes:
       - ./jenkins_home:/var/jenkins_home
     ports:
       - "50000:50000"
       - "8080:8080"
+    networks:
+      - ldap_user
 
+networks:
+  ldap_user:
+    external: true
     
