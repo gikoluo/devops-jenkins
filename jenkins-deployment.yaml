@@ -20,7 +20,7 @@ spec:
         io.kompose.service: jenkins
     spec:
       containers:
-      - image: jenkins
+      - image: registry.cn-shanghai.aliyuncs.com/giko/jenkins:0.0.2
         name: jenkins
         ports:
         - containerPort: 50000
@@ -29,6 +29,8 @@ spec:
         volumeMounts:
         - mountPath: /var/jenkins_home
           name: jenkins-home-pvc
+      imagePullSecrets:
+        - name: aliyunregsecret
       restartPolicy: Always
       volumes:
       - name: jenkins-home-pvc
