@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins
+spec:
+  containers:
+    - name: jenkins
+      image: registry.cn-shanghai.aliyuncs.com/giko/jenkins:0.0.1
+  imagePullSecrets:
+    - name: regsecret
