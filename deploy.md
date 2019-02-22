@@ -14,6 +14,23 @@ kubectl port-forward jenkins-545456974-r9858 8080:8080
 
 open http://127.0.0.1:8080/ in your favirous browser.
 
+
+
+# Install by yum
+
+```
+$ yum install jenkins
+```
+
+```
+$ export JENKINS_USER_ID=luochunhui
+$ export JENKINS_API_TOKEN=123456
+$ export JENKINS_SERVER=http://192.168.30.200:8080/
+$ cd devops-jenkins
+$ wget "${JENKINS_SERVER}jnlpJars/jenkins-cli.jar"
+$ xargs java -jar jenkins-cli.jar -s $JENKINS_SERVER install-plugin $i < plugins.txt
+```
+
 2. Setup
 
 docker logs jenkins-545456974-r9858
